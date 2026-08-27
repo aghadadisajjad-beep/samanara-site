@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سامان‌آرا | گروه مشاوره</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8F9FA;
+            color: #2D2D2D;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* ===== COLORS ===== */
+        :root {
+            --primary: #1A3A5C;
+            --secondary: #E8B931;
+            --bg: #F8F9FA;
+            --text: #2D2D2D;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+        }
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 12px 32px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 185, 49, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 12px 32px;
+            border: 2px solid var(--white);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+        .btn-secondary {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            background-color: #0f2a44;
+            transform: translateY(-2px);
+        }
+        /* ===== HEADER / NAV ===== */
+        header {
+            background: var(--primary);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(26, 58, 92, 0.2);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -1px;
+        }
+        .logo span {
+            color: var(--white);
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--secondary);
+            color: var(--primary) !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700 !important;
+        }
+        .nav-cta:hover {
+            background: #d4a82a !important;
+            color: var(--primary) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f2a44 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(232, 185, 49, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(232, 185, 49, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .section-title p {
+            color: #6c757d;
+            font-size: 18px;
+            margin-top: 8px;
+        }
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 32px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-bottom-color: var(--secondary);
+        }
+        .service-card .icon {
+            font-size: 48px;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .service-card .owner {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .service-card .owner i {
+            color: var(--secondary);
+        }
+        .service-card .btn-detail {
+            margin-top: 16px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .service-card .btn-detail:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        /* ===== SERVICE DETAIL OVERLAY ===== */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+        .overlay.active {
+            display: flex;
+        }
+        .overlay-content {
+            background: var(--white);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .overlay-content .close-btn {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            font-size: 28px;
+            color: #6c757d;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: 0.3s;
+        }
+        .overlay-content .close-btn:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        .overlay-content .icon-big {
+            font-size: 56px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        .overlay-content h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .overlay-content .owner-detail {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .overlay-content .full-desc {
+            color: #4a4a4a;
+            font-size: 15px;
+            line-height: 2;
+            text-align: justify;
+        }
+        .overlay-content .full-desc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 12px;
+        }
+        .overlay-content .full-desc ul li {
+            padding: 6px 0 6px 30px;
+            position: relative;
+        }
+        .overlay-content .full-desc ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary);
+            position: absolute;
+            right: 0;
+        }
+        .overlay-content .btn-close-overlay {
+            margin-top: 24px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .overlay-content .btn-close-overlay:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        /* ===== TEAM ===== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .team-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px 20px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+        .team-card .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 4px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--white);
+            background: var(--primary);
+            overflow: hidden;
+        }
+        .team-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-card h3 {
+            font-size: 18px;
+            color: var(--primary);
+        }
+        .team-card .role {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 14px;
+            margin: 2px 0 10px;
+        }
+        .team-card .bio {
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .team-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+        .team-card .tags span {
+            background: #e9ecef;
+            color: var(--primary);
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-grid .text h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .about-grid .text p {
+            color: #6c757d;
+            margin-bottom: 16px;
+        }
+        .about-grid .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .about-grid .stats .stat {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .about-grid .stats .stat h3 {
+            font-size: 28px;
+            color: var(--secondary);
+        }
+        .about-grid .stats .stat p {
+            font-size: 13px;
+            color: #6c757d;
+        }
+        /* ===== CONTACT ===== */
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border 0.3s;
+            background: var(--white);
+        }
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .form-group {
+            margin-bottom: 18px;
+        }
+        .contact-form label {
+            font-weight: 600;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .contact-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px 32px;
+            border-radius: var(--radius);
+        }
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        .contact-info .item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .contact-info .item i {
+            font-size: 20px;
+            color: var(--secondary);
+            width: 30px;
+        }
+        .contact-info .socials {
+            display: flex;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .contact-info .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .contact-info .socials a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+            border-top: 4px solid var(--secondary);
+        }
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        footer h4 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+        footer a {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: var(--secondary);
+        }
+        footer .copy {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        /* ===== SCROLL TOP ===== */
+        #scrollTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(232, 185, 49, 0.4);
+            transition: all 0.3s;
+            display: none;
+            z-index: 999;
+        }
+        #scrollTop:hover {
+            transform: translateY(-4px);
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 14px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .section-title h2 {
+                font-size: 28px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .overlay-content {
+                padding: 28px 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 60px 0 70px;
+            }
+            .hero h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container nav">
+            <div class="logo">سامان<span>‌آرا</span></div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="منو">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#team">تیم ما</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#contact" class="nav-cta">درخواست مشاوره</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>سامان‌آرا <span>گروه مشاوره</span></h1>
+            <p>نظم‌دهنده به مسیر رشد کسب‌وکار شما در چهار حوزه تخصصی</p>
+            <div class="btns">
+                <a href="#services" class="btn-primary">مشاهده خدمات</a>
+                <a href="#contact" class="btn-outline">تماس با ما</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدمات ما</h2>
+                <p>چهار حوزه تخصصی در کنار شما</p>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid" id="servicesGrid">
+                <!-- توسط JS پر می‌شود -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+    <section id="team" style="background:var(--bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>تیم مشاوران ما</h2>
+                <p>جمعی از متخصصان با تجربه در کنار شما</p>
+                <div class="line"></div>
+            </div>
+            <div class="team-grid" id="teamGrid">
+                <!-- توسط JS پر می‌شود -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="text">
+                    <h2>درباره سامان‌آرا</h2>
+                    <p>
+                        سامان‌آرا گروهی از متخصصان با تجربه در حوزه‌های فروش، مالیات، تامین مالی و حقوقی است که با کنار هم قرار گرفتن، یک پکیج کامل مشاوره‌ای برای کسب‌وکارها فراهم کرده‌ایم.
+                    </p>
+                    <p>
+                        ما معتقدیم هر کسب‌وکاری برای رشد پایدار نیاز به نظم و ساختار در همه‌ی ابعاد دارد. با تخصص مکمل اعضای تیم، از مرحله‌ی ایده تا اجرا و توسعه، در کنار شما هستیم.
+                    </p>
+                    <div class="stats">
+                        <div class="stat"><h3>۱۵۰+</h3><p>مشتری راضی</p></div>
+                        <div class="stat"><h3>۲۰+</h3><p>سال تجربه</p></div>
+                        <div class="stat"><h3>۳۰۰+</h3><p>پروژه موفق</p></div>
+                    </div>
+                </div>
+                <div style="background:var(--primary);border-radius:var(--radius);padding:40px;color:var(--white);">
+                    <h3 style="font-size:24px;color:var(--secondary);margin-bottom:16px;">ماموریت و چشم‌انداز</h3>
+                    <p style="margin-bottom:20px;">
+                        <strong>ماموریت:</strong> توانمندسازی کسب‌وکارها با ارائه مشاوره‌های تخصصی و کاربردی در چهار حوزه کلیدی.
+                    </p>
+                    <p>
+                        <strong>چشم‌انداز:</strong> تبدیل شدن به مرجع اصلی مشاوره‌های بین‌رشته‌ای در ایران و خاورمیانه.
+                    </p>
+                    <hr style="border-color:rgba(255,255,255,0.2);margin:24px 0;">
+                    <h4 style="color:var(--secondary);">ارزش‌های ما</h4>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+                        <span>✅ صداقت</span>
+                        <span>✅ تخصص</span>
+                        <span>✅ همراهی</span>
+                        <span>✅ نوآوری</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" style="background:var(--bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>تماس با ما</h2>
+                <p>مشتاقانه منتظر شنیدن صدای شما هستیم</p>
+                <div class="line"></div>
+            </div>
+            <div class="contact-wrap">
+                <form class="contact-form" id="contactForm" onsubmit="handleForm(event)">
+                    <div class="form-group">
+                        <label>نام و نام خانوادگی</label>
+                        <input type="text" placeholder="نام خود را وارد کنید" required />
+                    </div>
+                    <div class="form-group">
+                        <label>ایمیل</label>
+                        <input type="email" placeholder="ایمیل خود را وارد کنید" required />
+                    </div>
+                    <div class="form-group">
+                        <label>شماره تماس</label>
+                        <input type="tel" placeholder="شماره تماس" />
+                    </div>
+                    <div class="form-group">
+                        <label>موضوع</label>
+                        <select>
+                            <option>مشاوره فروش</option>
+                            <option>مشاوره مالیاتی</option>
+                            <option>مشاوره تامین مالی</option>
+                            <option>مشاوره حقوقی</option>
+                            <option>سایر</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>پیام</label>
+                        <textarea placeholder="پیام خود را بنویسید..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width:100%;">ارسال پیام</button>
+                    <div id="formMsg" style="margin-top:12px;font-weight:600;text-align:center;"></div>
+                </form>
+
+                <div class="contact-info">
+                    <h3>اطلاعات تماس</h3>
+                    <div class="item"><i class="fas fa-map-marker-alt"></i> تهران - میدان ونک - برج ونک - طبقه ۵ - واحد ۱۲</div>
+                    <div class="item"><i class="fas fa-phone"></i> ۰۲۱-۸۸۸۸۸۸۸۸</div>
+                    <div class="item"><i class="fas fa-envelope"></i> info@samanara.com</div>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                    <div style="margin-top:24px;border-radius:12px;overflow:hidden;height:150px;background:#1a2a3a;">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.687477218455!2d51.3967!3d35.7206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQzJzE0LjIiTiA1McKwMjMnNDguMCJF!5e0!3m2!1sen!2sir!4v1700000000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICE DETAIL OVERLAY ===== -->
+<div class="overlay" id="serviceOverlay">
+    <div class="overlay-content">
+        <button class="close-btn" onclick="closeOverlay()">&times;</button>
+        <div class="icon-big" id="detailIcon"><i class="fas fa-chart-line"></i></div>
+        <h2 id="detailTitle">عنوان خدمت</h2>
+        <div class="owner-detail" id="detailOwner">مسئول: نام مسئول</div>
+        <div class="full-desc" id="detailDesc">
+            توضیحات کامل خدمت
+        </div>
+        <button class="btn-close-overlay" onclick="closeOverlay()">بستن</button>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4 style="color:var(--secondary);font-size:24px;">سامان‌آرا</h4>
+                <p style="font-size:14px;opacity:0.7;">نظم‌دهنده به مسیر رشد کسب‌وکار شما</p>
+            </div>
+            <div>
+                <h4>دسترسی سریع</h4>
+                <a href="#home">خانه</a>
+                <a href="#services">خدمات</a>
+                <a href="#team">تیم ما</a>
+                <a href="#about">درباره ما</a>
+                <a href="#contact">تماس با ما</a>
+            </div>
+            <div>
+                <h4>خدمات</h4>
+                <a href="#services" onclick="openDetail(0)">مشاوره فروش</a>
+                <a href="#services" onclick="openDetail(1)">مشاوره مالیاتی</a>
+                <a href="#services" onclick="openDetail(2)">مشاوره تامین مالی</a>
+                <a href="#services" onclick="openDetail(3)">مشاوره حقوقی</a>
+            </div>
+            <div>
+                <h4>تماس</h4>
+                <a>۰۲۱-۸۸۸۸۸۸۸۸</a>
+                <a>info@samanara.com</a>
+                <a>تهران، ونک</a>
+            </div>
+        </div>
+        <div class="copy">
+            &copy; ۲۰۲۶ تمامی حقوق برای سامان‌آرا محفوظ است.
+        </div>
+    </div>
+</footer>
+
+<!-- ===== SCROLL TOP ===== -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // ===== DATA =====
+    const servicesData = [{
+        id: 1,
+        icon: 'fa-chart-line',
+        title: 'مشاوره فروش و توسعه کسب‌وکار',
+        shortDesc: 'طراحی استراتژی فروش، مدیریت کانال‌های توزیع، قیمت‌گذاری، مذاکره و منتورینگ تیم‌های فروش.',
+        owner: 'سجاد آقادادی',
+        fullDesc: `
+                <p>خدمات مشاوره فروش و توسعه کسب‌وکار سامان‌آرا، با هدف افزایش درآمد و بهبود عملکرد فروش سازمان‌ها طراحی شده است. این خدمات شامل:</p>
+                <ul>
+                    <li><strong>تدوین استراتژی فروش:</strong> طراحی نقشه راه فروش بر اساس تحلیل بازار و رقبا</li>
+                    <li><strong>مدیریت کانال‌های توزیع:</strong> بهینه‌سازی شبکه توزیع و انتخاب بهترین کانال‌ها</li>
+                    <li><strong>قیمت‌گذاری هوشمند:</strong> تعیین قیمت رقابتی با حفظ حاشیه سود مناسب</li>
+                    <li><strong>مذاکرات تجاری کلان:</strong> همراهی در مذاکرات با مشتریان بزرگ و سازمان‌ها</li>
+                    <li><strong>منتورینگ تیم فروش:</strong> آموزش و توانمندسازی نیروهای فروش برای افزایش بهره‌وری</li>
+                    <li><strong>سیستم‌های CRM:</strong> پیاده‌سازی و مدیریت سیستم‌های ارتباط با مشتری</li>
+                </ul>
+                <p style="margin-top:12px;">با بیش از ۱۰ سال تجربه در صنایع مختلف، تیم ما به شما کمک می‌کند تا فروش خود را به سطح بعدی برسانید.</p>
+            `
+    }, {
+        id: 2,
+        icon: 'fa-coins',
+        title: 'مشاوره مالیاتی و اعتباری',
+        shortDesc: 'ارزیابی اعتباری، ارزشگذاری دارایی‌ها، مدیریت ریسک، مالی شرکتی و مشاوره سرمایه‌گذاری.',
+        owner: 'میثم یوسفی',
+        fullDesc: `
+                <p>خدمات مشاوره مالیاتی و اعتباری سامان‌آرا، به شما کمک می‌کند تا با مدیریت هوشمندانه مالیات و اعتبار، سودآوری خود را افزایش دهید:</p>
+                <ul>
+                    <li><strong>ارزیابی اعتباری شرکت‌ها:</strong> تحلیل دقیق وضعیت اعتباری و ارائه راهکارهای بهبود</li>
+                    <li><strong>ارزشگذاری دارایی‌ها:</strong> تعیین ارزش واقعی دارایی‌های مشهود و نامشهود</li>
+                    <li><strong>مدیریت ریسک مالی:</strong> شناسایی و کاهش ریسک‌های مالی و سرمایه‌گذاری</li>
+                    <li><strong>مالی شرکتی:</strong> مشاوره در ساختار سرمایه، تأمین مالی و تخصیص بهینه منابع</li>
+                    <li><strong>مشاوره سرمایه‌گذاری:</strong> تحلیل فرصت‌های سرمایه‌گذاری و ارائه توصیه‌های کاربردی</li>
+                    <li><strong>بهینه‌سازی مالیاتی:</strong> کاهش بار مالیاتی با رعایت قوانین و مقررات</li>
+                </ul>
+                <p style="margin-top:12px;">میثم یوسفی با سابقه فعالیت در بانک سینا، VC و PE، تجربه‌ای ارزشمند در حوزه مالی شرکتی و ارزشگذاری دارایی‌ها دارد.</p>
+            `
+    }, {
+        id: 3,
+        icon: 'fa-handshake',
+        title: 'مشاوره تامین مالی زنجیره تامین',
+        shortDesc: 'تامین مالی زنجیره‌ای، مذاکره با بانک‌ها، تدوین مصوبه‌های اعتباری و طرح‌های توجیهی اقتصادی.',
+        owner: 'جواد کسمائی',
+        fullDesc: `
+                <p>خدمات مشاوره تامین مالی زنجیره تامین سامان‌آرا، به شما در تأمین مالی مؤثر و بهینه برای کسب‌وکارتان کمک می‌کند:</p>
+                <ul>
+                    <li><strong>تامین مالی زنجیره‌ای:</strong> طراحی و اجرای راهکارهای تأمین مالی برای کل زنجیره ارزش</li>
+                    <li><strong>مذاکره با بانک‌ها:</strong> همراهی در مذاکرات با بانک‌ها و مؤسسات مالی برای اخذ تسهیلات</li>
+                    <li><strong>تدوین مصوبه اعتباری:</strong> تهیه پیش‌نویس مصوبه‌های اعتباری و ارائه به کمیته اعتباری</li>
+                    <li><strong>طرح‌های توجیهی اقتصادی:</strong> تدوین طرح‌های توجیهی و امکان‌سنجی اقتصادی پروژه‌ها</li>
+                    <li><strong>عملیاتی‌سازی طرح‌های مالی:</strong> همکاری در اجرایی‌سازی و بودجه‌بندی طرح‌های تأمین مالی</li>
+                    <li><strong>ارتباط با نهادهای مالی:</strong> ایجاد و مدیریت ارتباط با بانک‌ها و نهادهای مالی</li>
+                </ul>
+                <p style="margin-top:12px;">جواد کسمائی با سابقه فعالیت در بلوبانک و کاینت، تجربه گسترده‌ای در حوزه تامین مالی زنجیره تامین و تعامل با بانک‌ها دارد.</p>
+            `
+    }, {
+        id: 4,
+        icon: 'fa-gavel',
+        title: 'مشاوره حقوقی و قراردادها',
+        shortDesc: 'تنظیم قراردادها، مالکیت فکری، دعاوی ملکی و شهرداری، دیوان عدالت اداری و وکالت تخصصی.',
+        owner: 'امیر باقری',
+        fullDesc: `
+                <p>خدمات مشاوره حقوقی سامان‌آرا، با هدف حفظ حقوق و منافع کسب‌وکار شما در تمامی عرصه‌های حقوقی طراحی شده است:</p>
+                <ul>
+                    <li><strong>تنظیم قراردادها:</strong> تدوین و تنظیم انواع قراردادهای تجاری، استخدامی، مشارکت و ...</li>
+                    <li><strong>مالکیت فکری:</strong> ثبت و حمایت از برند، اختراعات و علائم تجاری</li>
+                    <li><strong>دعاوی ملکی و شهرداری:</strong> رسیدگی به پرونده‌های ملکی، شهرداری و تخلفات ساختمانی</li>
+                    <li><strong>دیوان عدالت اداری:</strong> پیگیری شکایات علیه تصمیمات و اقدامات دستگاه‌های دولتی</li>
+                    <li><strong>وکالت در پرونده‌های حقوقی و کیفری:</strong> وکالت در بیش از ۱۰۰ پرونده موفق</li>
+                    <li><strong>مشاوره حقوقی مستمر:</strong> ارائه مشاوره روزانه به کسب‌وکارها در زمینه مسائل حقوقی جاری</li>
+                </ul>
+                <p style="margin-top:12px;">امیر باقری، وکیل پایه یک دادگستری با تخصص در مالکیت فکری از دانشگاه تهران، با سابقه وکالت موکلانی نظیر توسعه زرین بهشهر، استنلی و صندوق‌های معاونت علمی ریاست جمهوری، آماده ارائه خدمات حقوقی به شماست.</p>
+            `
+    }];
+
+    const teamData = [{
+        id: 1,
+        name: 'سجاد آقادادی',
+        role: 'مشاور ارشد فروش و توسعه کسب‌وکار',
+        bio: 'بیش از ۱۰ سال تجربه در فروش B2B و B2C، طراحی سیستم‌های CRM، مذاکرات کلان و منتورینگ تیم‌های فروش. دارای MBA از دانشگاه تهران.',
+        tags: ['فروش B2B', 'CRM', 'مذاکره', 'استراتژی قیمت‌گذاری'],
+        initials: 'سا',
+        img: 'images/sajjad.jpg'  // ← اسم عکس درست
+    }, {
+        id: 2,
+        name: 'میثم یوسفی',
+        role: 'مشاور مالی و اعتباری',
+        bio: 'ارزیابی اعتباری شرکت‌ها، مشاوره مالی شرکتی، ارزشگذاری دارایی‌ها و ریسک. سابقه فعالیت در VC، PE و بانک سینا. مترجم کتاب «اقتصاد در میدان عمل».',
+        tags: ['ارزشگذاری', 'ریسک', 'مالی شرکتی', 'ارزیابی اعتباری'],
+        initials: 'می',
+        img: 'images/maysam.jpg'   // ← اسم عکس درست
+    }, {
+        id: 3,
+        name: 'جواد کسمائی',
+        role: 'مشاور تامین مالی زنجیره تامین',
+        bio: 'مسئول تامین مالی زنجیره تامین در بلوبانک، مذاکره با بانک‌ها، تدوین مصوبه‌های اعتباری و عملیاتی‌سازی طرح‌های مالی.',
+        tags: ['تامین مالی زنجیره‌ای', 'مذاکره بانکی', 'تحلیل اقتصادی', 'طرح‌های توجیهی'],
+        initials: 'جو',
+        img: 'images/javad.jpg'    // ← اسم عکس درست
+    }, {
+        id: 4,
+        name: 'امیر باقری',
+        role: 'وکیل پایه یک دادگستری | مشاور حقوقی',
+        bio: 'وکالت در بیش از ۱۰۰ پرونده حقوقی و کیفری. تخصص در مالکیت فکری، تنظیم قراردادها، دعاوی شهرداری، ملکی و دیوان عدالت اداری.',
+        tags: ['مالکیت فکری', 'قراردادها', 'دعاوی ملکی', 'دیوان عدالت'],
+        initials: 'ام',
+        img: 'images/amir.jpg'     // ← اسم عکس درست
+    }];
+
+    // ===== RENDER SERVICES =====
+    function renderServices() {
+        const grid = document.getElementById('servicesGrid');
+        grid.innerHTML = servicesData.map((s, index) => `
+                <div class="service-card" onclick="openDetail(${index})">
+                    <div class="icon"><i class="fas ${s.icon}"></i></div>
+                    <h3>${s.title}</h3>
+                    <p>${s.shortDesc}</p>
+                    <div class="owner"><i class="fas fa-user"></i> مسئول: ${s.owner}</div>
+                    <button class="btn-detail" onclick="event.stopPropagation(); openDetail(${index})">
+                        <i class="fas fa-arrow-left"></i> مشاهده جزئیات
+                    </button>
+                </div>
+            `).join('');
+    }
+
+    // ===== RENDER TEAM =====
+    function renderTeam() {
+        const grid = document.getElementById('teamGrid');
+        grid.innerHTML = teamData.map(m => `
+                <div class="team-card">
+                    <div class="avatar">
+                        ${m.img ? `<img src="${m.img}" alt="${m.name}" onerror="this.style.display='none';this.parentElement.innerHTML='${m.initials}'">` : m.initials}
+                    </div>
+                    <h3>${m.name}</h3>
+                    <div class="role">${m.role}</div>
+                    <div class="bio">${m.bio}</div>
+                    <div class="tags">${m.tags.map(t => `<span>${t}</span>`).join('')}</div>
+                </div>
+            `).join('');
+    }
+
+    // ===== OPEN DETAIL OVERLAY =====
+    function openDetail(index) {
+        const service = servicesData[index];
+        if (!service) return;
+
+        document.getElementById('detailIcon').innerHTML = `<i class="fas ${service.icon}"></i>`;
+        document.getElementById('detailTitle').textContent = service.title;
+        document.getElementById('detailOwner').textContent = `👤 مسئول: ${service.owner}`;
+        document.getElementById('detailDesc').innerHTML = service.fullDesc;
+
+        document.getElementById('serviceOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // ===== CLOSE OVERLAY =====
+    function closeOverlay() {
+        document.getElementById('serviceOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // ===== CLOSE OVERLAY WITH ESC KEY =====
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeOverlay();
+        }
+    });
+
+    // ===== FORM HANDLER =====
+    function handleForm(e) {
+        e.preventDefault();
+        const msg = document.getElementById('formMsg');
+        msg.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.';
+        msg.style.color = 'green';
+        setTimeout(() => { msg.innerHTML = ''; }, 5000);
+        e.target.reset();
+    }
+
+    // ===== SCROLL TOP BUTTON =====
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 400) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+
+    // ===== HAMBURGER MENU =====
+    function toggleMenu() {
+        const links = document.getElementById('navLinks');
+        links.classList.toggle('open');
+    }
+
+    // ===== SMOOTH SCROLL FOR NAV LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('navLinks').classList.remove('open');
+            }
+        });
+    });
+
+    // ===== CLOSE OVERLAY ON BACKGROUND CLICK =====
+    document.getElementById('serviceOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeOverlay();
+        }
+    });
+
+    // ===== INIT =====
+    renderServices();
+    renderTeam();
+</script>
+
+</body>
+</html>
